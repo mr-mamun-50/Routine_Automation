@@ -11,8 +11,10 @@ import Courses from "./pages/Courses/courses";
 import Teachers from "./pages/Teachers/teachers";
 import TeacherCreate from "./pages/Teachers/teacher_create";
 import TeacherEdit from "./pages/Teachers/teacher_edit";
+import Routines from "./pages/Routines/routines";
+import RoutineWithTeacher from "./pages/RWT/routineWithTeacher";
 
-axios.defaults.baseURL = "http://localhost/IT_Lab_School/backend/public";
+axios.defaults.baseURL = "http://localhost/routine_automation/backend/public";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
 
@@ -29,7 +31,8 @@ function App() {
       <Routes>
         <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
 
-          <Route index element={<Home />} />
+          <Route index element={<RoutineWithTeacher />} />
+          <Route path="/routines" element={<Routines />} />
           <Route path="/students" element={<Students />} />
 
           <Route path="/teachers" element={<Teachers />} />

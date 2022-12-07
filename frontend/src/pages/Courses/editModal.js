@@ -67,7 +67,7 @@ export default function CourseEditModal({ course, teachers }) {
                                 {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> :
                                     success ? setTimeout(() => setSuccess(''), 3000) && success :
                                         error ? setTimeout(() => setError(''), 3000) && error :
-                                            <span><i className="fas fa-plus me-1"></i> Create</span>
+                                            <span><i className="fas fa-plus me-1"></i> Update</span>
                                 }
                             </button>
                         </div>

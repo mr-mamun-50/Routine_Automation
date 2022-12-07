@@ -105,6 +105,8 @@ export default function Courses() {
         fetchCourses()
     }, []);
 
+    console.log(courses)
+
     return (
         <div>
             <ul className='breadcrumb'>
@@ -121,7 +123,7 @@ export default function Courses() {
 
             <div className="card-body row bg-dark mt-0">
                 <div className="col-md-12 col-lg-6">
-                    <div className="card">
+                    <div className="card mb-3">
                         <div className="card-header">
                             <h5 className='my-2'>Class: XI</h5>
                         </div>
@@ -162,7 +164,7 @@ export default function Courses() {
                     </div>
                 </div>
                 <div className="col-md-12 col-lg-6 mt-md-3 mt-lg-0">
-                    <div className="card">
+                    <div className="card mb-3">
                         <div className="card-header">
                             <h5 className='my-2'>Class: XII</h5>
                         </div>

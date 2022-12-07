@@ -8,6 +8,11 @@ export default function SideNav() {
                 <div className="list-group list-group-flush mx-3 mt-4">
                     <NavLink to="/">
                         <span className="list-group-item list-group-item-action py-2">
+                            <i className="far fa-calendar me-3"></i> RW Teacher
+                        </span>
+                    </NavLink>
+                    <NavLink to="/routines">
+                        <span className="list-group-item list-group-item-action py-2">
                             <i className="fas fa-calendar-alt me-3"></i> Routine
                         </span>
                     </NavLink>
