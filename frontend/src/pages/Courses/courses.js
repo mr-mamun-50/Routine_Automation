@@ -111,12 +111,12 @@ export default function Courses() {
         <div>
             <ul className='breadcrumb'>
                 <li className='breadcrumb-item'> <Link>Dashboard</Link> </li>
-                <li className='breadcrumb-item'> <Link>Courses</Link> </li>
+                <li className='breadcrumb-item'> <Link>Subjects</Link> </li>
             </ul>
 
 
             <div className="card-header p-3 rounded-5 d-flex justify-content-between align-items-center my-3">
-                <h4 className='m-0'>Courses</h4>
+                <h4 className='m-0'>Subjects</h4>
                 <button className="btn btn-secondary btn-sm" data-mdb-toggle="modal" data-mdb-target="#createCourseModal">
                     <i className="fas fa-plus me-1"></i> Create</button>
             </div>

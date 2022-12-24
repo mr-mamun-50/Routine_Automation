@@ -5,14 +5,11 @@ import axios from "axios";
 import PrivateRoute from "./components/privateRoute";
 import PublicRoute from "./components/publicRoute";
 import Layout from "./components/layout";
-import Home from "./pages/home";
-import Students from "./pages/students";
 import Courses from "./pages/Courses/courses";
 import Teachers from "./pages/Teachers/teachers";
 import TeacherCreate from "./pages/Teachers/teacher_create";
 import TeacherEdit from "./pages/Teachers/teacher_edit";
 import Routines from "./pages/Routines/routines";
-import RoutineWithTeacher from "./pages/RWT/routineWithTeacher";
 
 axios.defaults.baseURL = "http://localhost/routine_automation/backend/public";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -31,9 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
 
-          <Route index element={<RoutineWithTeacher />} />
-          <Route path="/routines" element={<Routines />} />
-          <Route path="/students" element={<Students />} />
+          <Route index element={<Routines />} />
 
           <Route path="/teachers" element={<Teachers />} />
           <Route path="/teachers/create" element={<TeacherCreate />} />

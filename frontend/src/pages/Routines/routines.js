@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2';
 import RoutineEditModal from './editModal';
 
 export default function Home() {
@@ -10,6 +11,41 @@ export default function Home() {
     const [error, setError] = useState();
     const [routineXI, setRoutineXI] = useState([]);
     const [routineXII, setRoutineXII] = useState([]);
+
+    const generate = (clas) => {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Once it process all this routines data are changed!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#332D2D',
+            cancelButtonColor: '#9FA6B2',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                setLoading(true)
+                axios.get(`/api/generate_routine/${clas}`).then(res => {
+                    if (res.status === 200) {
+                        setLoading(false)
+                        setSuccess(res.data.message)
+                        if (clas === 'XI')
+                            fetchRoutineXI()
+                        else
+                            fetchRoutineXII()
+                    } else {
+                        setLoading(false)
+                        setError(res.data.message)
+                    }
+                }).catch(err => {
+                    setLoading(false)
+                    setError(err.response.data.message)
+                });
+            }
+        })
+    }
+
 
     const fetchRoutineXI = () => {
         setLoading(true)
@@ -53,8 +89,15 @@ export default function Home() {
 
 
             <div className="card">
-                <div className="card-header">
+                <div className="card-header d-flex justify-content-between align-items-center">
                     <h4 className='m-0'>Class: XI</h4>
+                    <button type='button' onClick={() => generate('XI')} className="btn btn-success btn-lg">
+                        {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> :
+                            success ? setTimeout(() => setSuccess(''), 3000) && success :
+                                error ? setTimeout(() => setError(''), 3000) && error :
+                                    <span><i class="fas fa-bolt fa-xl me-2"></i> Re-Generate</span>
+                        }
+                    </button>
                 </div>
 
                 <div className="card-body">
@@ -71,7 +114,7 @@ export default function Home() {
                             </tr>
                         </thead>
                         <tbody>
-                            {loading ? <tr><td colSpan="5" className="text-center"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></td></tr> :
+                            {loading ? <tr><td colSpan="7" className="text-center"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></td></tr> :
                                 routineXI ? routineXI.map((routine_xi, index) => (
                                     <tr>
                                         <td>{routine_xi.day}</td>
@@ -81,7 +124,7 @@ export default function Home() {
                                         <td>{routine_xi.xi12_45}</td>
                                         <td>{routine_xi.xi01_30}</td>
                                         <td>
-                                            <button className="btn btn-primary btn-sm" data-mdb-toggle="modal" data-mdb-target={'#editroutine' + routine_xi.id + 'XIModal'}><i className="fa fa-edit btn-sm"></i></button>
+                                            <button className="btn btn-primary btn-sm px-2" data-mdb-toggle="modal" data-mdb-target={'#editroutine' + routine_xi.id + 'XIModal'}><i className="fa fa-edit btn-sm"></i></button>
                                         </td>
 
                                         <RoutineEditModal routine={routine_xi} cls={'XI'} />
@@ -95,8 +138,15 @@ export default function Home() {
 
 
             <div className="card my-4">
-                <div className="card-header">
+                <div className="card-header d-flex justify-content-between align-items-center">
                     <h4 className='m-0'>Class: XII</h4>
+                    <button type='button' onClick={() => generate('XII')} className="btn btn-success btn-lg">
+                        {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> :
+                            success ? setTimeout(() => setSuccess(''), 3000) && success :
+                                error ? setTimeout(() => setError(''), 3000) && error :
+                                    <span><i class="fas fa-bolt fa-xl me-2"></i> Re-Generate</span>
+                        }
+                    </button>
                 </div>
 
                 <div className="card-body">
@@ -113,7 +163,7 @@ export default function Home() {
                             </tr>
                         </thead>
                         <tbody>
-                            {loading ? <tr><td colSpan="5" className="text-center"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></td></tr> :
+                            {loading ? <tr><td colSpan="7" className="text-center"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></td></tr> :
                                 routineXII ? routineXII.map((routine_xii, index) => (
                                     <tr>
                                         <td>{routine_xii.day}</td>
@@ -123,7 +173,7 @@ export default function Home() {
                                         <td>{routine_xii.xii12_45}</td>
                                         <td>{routine_xii.xii01_30}</td>
                                         <td>
-                                            <button className="btn btn-primary btn-sm" data-mdb-toggle="modal" data-mdb-target={'#editroutine' + routine_xii.id + 'XIIModal'}><i className="fa fa-edit btn-sm"></i></button>
+                                            <button className="btn btn-primary btn-sm px-2" data-mdb-toggle="modal" data-mdb-target={'#editroutine' + routine_xii.id + 'XIIModal'}><i className="fa fa-edit btn-sm"></i></button>
                                         </td>
 
                                         <RoutineEditModal routine={routine_xii} cls={'XII'} />

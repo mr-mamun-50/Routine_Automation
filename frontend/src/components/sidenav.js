@@ -8,17 +8,12 @@ export default function SideNav() {
                 <div className="list-group list-group-flush mx-3 mt-4">
                     <NavLink to="/">
                         <span className="list-group-item list-group-item-action py-2">
-                            <i className="far fa-calendar me-3"></i> RW Teacher
-                        </span>
-                    </NavLink>
-                    <NavLink to="/routines">
-                        <span className="list-group-item list-group-item-action py-2">
                             <i className="fas fa-calendar-alt me-3"></i> Routine
                         </span>
                     </NavLink>
                     <NavLink to="/courses">
                         <span className="list-group-item list-group-item-action py-2">
-                            <i className="fas fa-book-open me-3"></i> Courses
+                            <i className="fas fa-book-open me-3"></i> Subjects
                         </span>
                     </NavLink>
                     <NavLink to="/teachers">
@@ -26,11 +21,11 @@ export default function SideNav() {
                             <i className="fas fa-chalkboard-teacher me-3"></i>Teachers
                         </span>
                     </NavLink>
-                    <NavLink to="/students">
+                    {/* <NavLink to="/students">
                         <span className="list-group-item list-group-item-action py-2">
                             <i className="fas fa-users me-3"></i>Students
                         </span>
-                    </NavLink>
+                    </NavLink> */}
                 </div>
             </div>
         </nav>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CourseController;
+use App\Http\Controllers\API\GenerateRoutineController;
 use App\Http\Controllers\API\RoutineController;
 use App\Http\Controllers\API\TeachersController;
 use Illuminate\Http\Request;
@@ -40,4 +41,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('routines_xi', [RoutineController::class, 'index_xi']);
     Route::get('routines_xii', [RoutineController::class, 'index_xii']);
     Route::put('routines/{id}/{cls}', [RoutineController::class, 'update']);
+
+    Route::get('generate_routine/{clas}', [GenerateRoutineController::class, 'index']);
 });
