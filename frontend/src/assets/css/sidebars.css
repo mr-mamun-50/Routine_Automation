@@ -44,9 +44,6 @@ body {
 .sidebar .active i {
     color: #ff4546;
 } */
-.sidebar span:hover {
-    color: #ff4546;
-}
 
 .sidebar .list-group-item {
     border: none;
