@@ -16,11 +16,11 @@ export default function Home() {
 
         Swal.fire({
             title: 'Are you sure?',
-            text: "Once it process all this routines data are changed!",
+            text: "Once this process is completed, all the data in the routine will be changed!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#332D2D',
-            cancelButtonColor: '#9FA6B2',
+            confirmButtonColor: '#6749c6',
+            cancelButtonColor: '#ff4546',
             confirmButtonText: 'Yes'
         }).then((result) => {
             if (result.isConfirmed) {
@@ -91,7 +91,7 @@ export default function Home() {
             <div className="card">
                 <div className="card-header d-flex justify-content-between align-items-center">
                     <h4 className='m-0'>Class: XI</h4>
-                    <button type='button' onClick={() => generate('XI')} className="btn btn-success btn-lg">
+                    <button type='button' onClick={() => generate('XI')} className="btn btn-primary btn-lg">
                         {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> :
                             success ? setTimeout(() => setSuccess(''), 3000) && success :
                                 error ? setTimeout(() => setError(''), 3000) && error :
@@ -100,8 +100,8 @@ export default function Home() {
                     </button>
                 </div>
 
-                <div className="card-body">
-                    <table className="table table-bordered">
+                <div className="card-body table-responsive">
+                    <table className="table table-bordere table-striped">
                         <thead>
                             <tr>
                                 <th>Day</th>
@@ -117,14 +117,14 @@ export default function Home() {
                             {loading ? <tr><td colSpan="7" className="text-center"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></td></tr> :
                                 routineXI ? routineXI.map((routine_xi, index) => (
                                     <tr>
-                                        <td>{routine_xi.day}</td>
+                                        <th>{routine_xi.day}</th>
                                         <td>{routine_xi.xi10_30}</td>
                                         <td>{routine_xi.xi11_15}</td>
                                         <td>{routine_xi.xi12_00}</td>
                                         <td>{routine_xi.xi12_45}</td>
                                         <td>{routine_xi.xi01_30}</td>
                                         <td>
-                                            <button className="btn btn-primary btn-sm px-2" data-mdb-toggle="modal" data-mdb-target={'#editroutine' + routine_xi.id + 'XIModal'}><i className="fa fa-edit btn-sm"></i></button>
+                                            <button className="btn btn-secondary btn-sm px-2" data-mdb-toggle="modal" data-mdb-target={'#editroutine' + routine_xi.id + 'XIModal'}><i className="fa fa-edit btn-sm"></i></button>
                                         </td>
 
                                         <RoutineEditModal routine={routine_xi} cls={'XI'} />
@@ -140,7 +140,7 @@ export default function Home() {
             <div className="card my-4">
                 <div className="card-header d-flex justify-content-between align-items-center">
                     <h4 className='m-0'>Class: XII</h4>
-                    <button type='button' onClick={() => generate('XII')} className="btn btn-success btn-lg">
+                    <button type='button' onClick={() => generate('XII')} className="btn btn-primary btn-lg">
                         {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> :
                             success ? setTimeout(() => setSuccess(''), 3000) && success :
                                 error ? setTimeout(() => setError(''), 3000) && error :
@@ -149,8 +149,8 @@ export default function Home() {
                     </button>
                 </div>
 
-                <div className="card-body">
-                    <table className="table table-bordered">
+                <div className="card-body table-responsive">
+                    <table className="table table-bordere table-striped">
                         <thead>
                             <tr>
                                 <th>Day</th>
@@ -166,14 +166,14 @@ export default function Home() {
                             {loading ? <tr><td colSpan="7" className="text-center"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></td></tr> :
                                 routineXII ? routineXII.map((routine_xii, index) => (
                                     <tr>
-                                        <td>{routine_xii.day}</td>
+                                        <th>{routine_xii.day}</th>
                                         <td>{routine_xii.xii10_30}</td>
                                         <td>{routine_xii.xii11_15}</td>
                                         <td>{routine_xii.xii12_00}</td>
                                         <td>{routine_xii.xii12_45}</td>
                                         <td>{routine_xii.xii01_30}</td>
                                         <td>
-                                            <button className="btn btn-primary btn-sm px-2" data-mdb-toggle="modal" data-mdb-target={'#editroutine' + routine_xii.id + 'XIIModal'}><i className="fa fa-edit btn-sm"></i></button>
+                                            <button className="btn btn-secondary btn-sm px-2" data-mdb-toggle="modal" data-mdb-target={'#editroutine' + routine_xii.id + 'XIIModal'}><i className="fa fa-edit btn-sm"></i></button>
                                         </td>
 
                                         <RoutineEditModal routine={routine_xii} cls={'XII'} />
@@ -187,6 +187,6 @@ export default function Home() {
             </div>
 
 
-        </div>
+        </div >
     )
 }

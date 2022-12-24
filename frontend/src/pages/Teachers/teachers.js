@@ -37,8 +37,8 @@ export default function Teachers() {
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#332D2D',
-            cancelButtonColor: '#9FA6B2',
+            confirmButtonColor: '#6749c6',
+            cancelButtonColor: '#ff4546',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
@@ -76,7 +76,7 @@ export default function Teachers() {
                 <div className="card">
                     <div className="card-header d-flex justify-content-between align-items-center my-2">
                         <h4>All Teachers</h4>
-                        <span><Link to="/teachers/create" className="btn btn-secondary btn-sm"><i className="fas fa-plus me-1"></i> Add Teacher</Link></span>
+                        <span><Link to="/teachers/create" className="btn btn-primary btn-sm"><i className="fas fa-plus me-1"></i> Add Teacher</Link></span>
                     </div>
 
                     <div className="card-body table-responsive">

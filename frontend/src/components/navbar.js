@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import logo from '../assets/images/TECH_CLOUD_Icon.png'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import logo from '../assets/images/logo.png'
 import Swal from 'sweetalert2';
 
 export default function Navbar() {
@@ -24,8 +24,8 @@ export default function Navbar() {
             text: "You will be redirect to login!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#332D2D',
-            cancelButtonColor: '#9FA6B2',
+            confirmButtonColor: '#6749c6',
+            cancelButtonColor: '#ff4546',
             confirmButtonText: 'Yes, logout!'
         }).then((result) => {
             if (result.isConfirmed) {
@@ -49,7 +49,7 @@ export default function Navbar() {
 
     return (
 
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 
             <div className="container-fluid">
 
@@ -69,18 +69,18 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <Link className="navbar-brand mt-2 mt-lg-0" to={'/'}>
-                        <img src={logo} alt='logo' style={{ height: '40px' }} />
+                        <img src={logo} alt='logo' style={{ height: '35px' }} /> <b className='ms-3'>Routine Automation</b>
                     </Link>
 
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-lg-none">
                         <li className="nav-item">
-                            <Link className="nav-link" href="#">Dashboard</Link>
+                            <NavLink className="nav-link" to="/">Routine</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="#">Team</Link>
+                            <NavLink className="nav-link" to="/courses">Subjects</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="#">Projects</Link>
+                            <NavLink className="nav-link" to="/teachers">Teachers</NavLink>
                         </li>
                     </ul>
 

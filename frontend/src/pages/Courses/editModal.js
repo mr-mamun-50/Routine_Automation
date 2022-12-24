@@ -55,7 +55,7 @@ export default function CourseEditModal({ course, teachers }) {
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Assign Teacher</label>
-                                <select className="form-select bg-dark text-white-50" value={teacher_id} onChange={(e) => setTeacherId(e.target.value)}>
+                                <select className="form-select" value={teacher_id} onChange={(e) => setTeacherId(e.target.value)}>
                                     {teachers && teachers.map((teacher) => (
                                         <option value={teacher.id}>{teacher.name + ', ' + teacher.designation + ', ' + teacher.department}</option>
                                     ))}

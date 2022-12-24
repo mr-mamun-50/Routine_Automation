@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import logo from '../assets/images/TECH_CLOUD_Logo.png'
+import logo from '../assets/images/logo.png'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -56,7 +56,7 @@ export default function Register() {
     return (
         <div className='d-flex align-items-center justify-content-center p-5' style={{ minHeight: '100vh' }} >
             <div className='col-lg-4 col-md-6 col-12'>
-                <img src={logo} alt='logo' className='img-fluid d-block mx-auto mb-5' width='220px' />
+                <img src={logo} alt='logo' className='img-fluid d-block mx-auto mb-5' width='100px' />
 
                 <div className='card card-body shadow-lg rounded-7'>
                     <form onSubmit={registerSubmit}>

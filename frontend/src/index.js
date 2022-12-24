@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'mdb-ui-kit/css/mdb.dark.min.css';
-// import 'mdb-ui-kit/css/mdb.min.css';
+// import 'mdb-ui-kit/css/mdb.dark.min.css';
+import 'mdb-ui-kit/css/mdb.min.css';
 import 'mdb-ui-kit/js/mdb.min.js';
 import './assets/css/sidebars.css'
 

@@ -1,3 +1,7 @@
+body {
+    background: #f0f4f7;
+}
+
 @media (min-width: 991.98px) {
     main {
         padding-left: 240px;
@@ -14,6 +18,8 @@
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
     width: 240px;
     z-index: 600;
+
+    background: #36344d;
 }
 
 @media (max-width: 991.98px) {
@@ -23,21 +29,30 @@
 }
 
 .sidebar .active {
-    background: #3b71ca;
+    background: #ff4546;
     color: #fff;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 }
 
-.sidebar .active span {
+/* .sidebar .active span span {
+    background: #000;
     color: #fff;
+    padding: 5px 0;
+    border-bottom: 2.5px solid #ff4546;
+}
+.sidebar .active i {
+    color: #ff4546;
+} */
+.sidebar span:hover {
+    color: #ff4546;
 }
 
 .sidebar .list-group-item {
     border: none;
     margin: 3px 0;
     background: none;
-    /* color: #fbfbfb; */
+    color: #fbfbfb;
 }
 
 .sidebar-sticky {
@@ -51,4 +66,11 @@
 
 .btn {
     text-transform: none;
+}
+
+.btn-primary {
+    background: #6749c6;
+}
+.btn-primary:hover {
+    background: #5033a8;
 }

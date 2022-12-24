@@ -87,7 +87,7 @@ export default function TeacherEdit() {
                 <div className="card col-12 col-lg-10">
                     <div className="card-header d-flex justify-content-between align-items-center my-2">
                         <h4>{name}</h4>
-                        <span><Link to="/teachers" className="btn btn-secondary btn-sm"><i className="fas fa-arrow-left"></i> Back</Link></span>
+                        <span><Link to="/teachers" className="btn btn-dark btn-sm"><i className="fas fa-arrow-left"></i> Back</Link></span>
                     </div>
 
                     <div className="card-body">

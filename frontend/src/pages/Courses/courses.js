@@ -77,8 +77,8 @@ export default function Courses() {
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#332D2D',
-            cancelButtonColor: '#9FA6B2',
+            confirmButtonColor: '#6749c6',
+            cancelButtonColor: '#ff4546',
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
@@ -115,13 +115,13 @@ export default function Courses() {
             </ul>
 
 
-            <div className="card-header p-3 rounded-5 d-flex justify-content-between align-items-center my-3">
+            <div className="card-header p-3 rounded-5 d-flex justify-content-between align-items-center my-3 bg-light">
                 <h4 className='m-0'>Subjects</h4>
-                <button className="btn btn-secondary btn-sm" data-mdb-toggle="modal" data-mdb-target="#createCourseModal">
+                <button className="btn btn-primary btn-sm" data-mdb-toggle="modal" data-mdb-target="#createCourseModal">
                     <i className="fas fa-plus me-1"></i> Create</button>
             </div>
 
-            <div className="card-body row bg-dark mt-0">
+            <div className="card-body row mt-0">
                 <div className="col-md-12 col-lg-6">
                     <div className="card mb-3">
                         <div className="card-header">
@@ -228,7 +228,7 @@ export default function Courses() {
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label">Assign Teacher</label>
-                                    <select className="form-select bg-dark text-white-50" value={teacher_id} onChange={(e) => setTeacherId(e.target.value)}>
+                                    <select className="form-select" value={teacher_id} onChange={(e) => setTeacherId(e.target.value)}>
                                         <option selected disabled>Select Teacher</option>
                                         {teachers && teachers.map((teacher) => (
                                             <option value={teacher.id}>{teacher.name + ', ' + teacher.designation + ', ' + teacher.department}</option>
@@ -237,7 +237,7 @@ export default function Courses() {
                                 </div>
                                 <div className='mb-3'>
                                     <label className="form-label">Select Class</label>
-                                    <select className="form-select bg-dark text-white-50" value={clas} onChange={(e) => setClas(e.target.value)}>
+                                    <select className="form-select" value={clas} onChange={(e) => setClas(e.target.value)}>
                                         <option selected disabled>Select Class</option>
                                         <option value={"XI"}>XI</option>
                                         <option value={"XII"}>XII</option>
