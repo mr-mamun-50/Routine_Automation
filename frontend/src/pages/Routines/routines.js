@@ -6,8 +6,10 @@ import RoutineEditModal from './editModal';
 
 export default function Home() {
 
-    const [loading, setLoading] = useState();
-    const [success, setSuccess] = useState();
+    const [loadingXI, setLoadingXI] = useState();
+    const [successXI, setSuccessXI] = useState();
+    const [loadingXII, setLoadingXII] = useState();
+    const [successXII, setSuccessXII] = useState();
     const [error, setError] = useState();
     const [routineXI, setRoutineXI] = useState([]);
     const [routineXII, setRoutineXII] = useState([]);
@@ -25,33 +27,35 @@ export default function Home() {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                setLoading(true)
+                clas === 'XI' ? setLoadingXI(true) : setLoadingXII(true)
                 axios.get(`/api/generate_routine/${clas}`).then(res => {
                     if (res.status === 200) {
-                        setLoading(false)
-                        setSuccess(res.data.message)
-                        if (clas === 'XI')
+                        if (clas === 'XI') {
+                            setLoadingXI(false)
+                            setSuccessXI(res.data.message)
                             fetchRoutineXI()
-                        else
+                        } else {
+                            setLoadingXII(false)
+                            setSuccessXII(res.data.message)
                             fetchRoutineXII()
+                        }
                     } else {
-                        setLoading(false)
+                        clas === 'XI' ? setLoadingXI(false) : setLoadingXII(false)
                         setError(res.data.message)
                     }
                 }).catch(err => {
-                    setLoading(false)
+                    clas === 'XI' ? setLoadingXI(false) : setLoadingXII(false)
                     setError(err.response.data.message)
                 });
             }
         })
     }
 
-
     const fetchRoutineXI = () => {
-        setLoading(true)
+        setLoadingXI(true)
         axios.get('/api/routines_xi').then(res => {
             if (res.status === 200) {
-                setLoading(false)
+                setLoadingXI(false)
                 setRoutineXI(res.data.routine_xi)
             } else {
                 console.log(res.data.message)
@@ -62,10 +66,10 @@ export default function Home() {
     }
 
     const fetchRoutineXII = () => {
-        setLoading(true)
+        setLoadingXII(true)
         axios.get('/api/routines_xii').then(res => {
             if (res.status === 200) {
-                setLoading(false)
+                setLoadingXII(false)
                 setRoutineXII(res.data.routine_xii)
             } else {
                 console.log(res.data.message)
@@ -92,8 +96,8 @@ export default function Home() {
                 <div className="card-header d-flex justify-content-between align-items-center">
                     <h4 className='m-0'>Class: XI</h4>
                     <button type='button' onClick={() => generate('XI')} className="btn btn-primary btn-lg">
-                        {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> :
-                            success ? setTimeout(() => setSuccess(''), 3000) && success :
+                        {loadingXI ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> :
+                            successXI ? setTimeout(() => setSuccessXI(''), 3000) && successXI :
                                 error ? setTimeout(() => setError(''), 3000) && error :
                                     <span><i class="fas fa-bolt fa-xl me-2"></i> Re-Generate</span>
                         }
@@ -114,7 +118,7 @@ export default function Home() {
                             </tr>
                         </thead>
                         <tbody>
-                            {loading ? <tr><td colSpan="7" className="text-center"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></td></tr> :
+                            {loadingXI ? <tr><td colSpan="7" className="text-center"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></td></tr> :
                                 routineXI ? routineXI.map((routine_xi, index) => (
                                     <tr>
                                         <th>{routine_xi.day}</th>
@@ -141,8 +145,8 @@ export default function Home() {
                 <div className="card-header d-flex justify-content-between align-items-center">
                     <h4 className='m-0'>Class: XII</h4>
                     <button type='button' onClick={() => generate('XII')} className="btn btn-primary btn-lg">
-                        {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> :
-                            success ? setTimeout(() => setSuccess(''), 3000) && success :
+                        {loadingXII ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> :
+                            successXII ? setTimeout(() => setSuccessXII(''), 3000) && successXII :
                                 error ? setTimeout(() => setError(''), 3000) && error :
                                     <span><i class="fas fa-bolt fa-xl me-2"></i> Re-Generate</span>
                         }
@@ -163,7 +167,7 @@ export default function Home() {
                             </tr>
                         </thead>
                         <tbody>
-                            {loading ? <tr><td colSpan="7" className="text-center"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></td></tr> :
+                            {loadingXII ? <tr><td colSpan="7" className="text-center"><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></td></tr> :
                                 routineXII ? routineXII.map((routine_xii, index) => (
                                     <tr>
                                         <th>{routine_xii.day}</th>
